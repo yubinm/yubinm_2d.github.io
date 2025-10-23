@@ -1,6 +1,8 @@
 name: Deploy Vite site to GitHub Pages
+
 on:
-  push: { branches: [ "main" ] }
+  push:
+    branches: [ "main" ]
   workflow_dispatch:
 
 permissions:
@@ -9,7 +11,7 @@ permissions:
   id-token: write
 
 concurrency:
-  group: pages
+  group: "pages"
   cancel-in-progress: true
 
 jobs:
@@ -18,14 +20,23 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
-        with: { node-version: 20, cache: npm }
+        with:
+          node-version: 20
+          cache: npm
       - run: npm ci
       - run: npm run build
       - run: echo > dist/.nojekyll
-      # If you use client-side routing, also:
+      # SPA? uncomment the next line:
       # - run: cp dist/index.html dist/404.html
+
+      # 🔎 sanity check: ensure built HTML references /yubinm_2d.github.io/assets/*.js
+      - name: Verify built index.html
+        run: |
+          grep -Eo '/yubinm_2d.github.io/assets/[^"]+\.js' dist/index.html || (echo "dist/index.html missing expected script!" && exit 1)
+
       - uses: actions/upload-pages-artifact@v3
-        with: { path: dist }
+        with:
+          path: dist
 
   deploy:
     needs: build
