@@ -1,7 +1,7 @@
 import { defineConfig } from "vite";
 
 export default defineConfig({
-  base: "./",
+  base: "yubinm_2d",
   build: {
     minify: "terser",
   },
