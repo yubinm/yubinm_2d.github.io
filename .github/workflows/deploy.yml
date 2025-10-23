@@ -26,13 +26,13 @@ jobs:
       - run: npm ci
       - run: npm run build
       - run: echo > dist/.nojekyll
-      # SPA? uncomment the next line:
+      # SPA? uncomment:
       # - run: cp dist/index.html dist/404.html
 
-      # 🔎 sanity check: ensure built HTML references /yubinm_2d.github.io/assets/*.js
+      # sanity check: built HTML should point to /yubinm_2d.github.io/assets/*.js
       - name: Verify built index.html
         run: |
-          grep -Eo '/yubinm_2d.github.io/assets/[^"]+\.js' dist/index.html || (echo "dist/index.html missing expected script!" && exit 1)
+          grep -Eo '/yubinm_2d.github.io/assets/[^"]+\.js' dist/index.html || (echo "❌ Not pointing at /yubinm_2d.github.io/assets/*.js" && exit 1)
 
       - uses: actions/upload-pages-artifact@v3
         with:
