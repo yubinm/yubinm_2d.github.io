@@ -1,1 +1,0 @@
-# yubinm.github.io
