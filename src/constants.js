@@ -11,7 +11,7 @@ export const dialogueData = {
   // bed: `This where I sleep. Great ideas comes when I'm lying on my bed. When an idea strikes, I often have to write it down or else I won't be able to sleep because my mental energy is consumed by it.`,
   // resume: `This is my desk and on it is my resume. <a href="https://github.com/JSLegendDev/Resume/blob/main/JSLegend%20Resume-1.pdf" target="_blank">Check it out?</a>
   // Contact me at jslegend@protonmail.com if you have any interesting job opportunities!`,
-  projects: `This is my desk! On it is my resume. Contact me at yubinmoon0910@gmail.com if you have any interesting job opportunities!`,
+  projects: `This is my desk! On it is my <a href="https://yubinm.github.io/Yubin%20Moon%20-%20Resume%20Oct.pdf" target="_blank">resume</a> Contact me at yubinmoon0910@gmail.com if you have any interesting job opportunities!`,
   library: `Lots of computer science and statistics homework keys, exams, etc. that I've used over the past few years in my TA and Grader jobs. There's also some books I read for fun; some are even in Korean (I'm fluent in Korean)!`,
   exit: `Leaving? You can close the tab :D`,
   fridge: `My fridge! There's a variety of different cusines that I enjoy; I'm open to moving around to wherever!`, 
